@@ -1,5 +1,8 @@
 const video= document.getElementById("video");
 
+
+// PROMISE TO START VIDEO ONCE ALL THESE FACE API'S ARE LOADED
+
 Promise.all([
     faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
     faceapi.nets.faceLandmark68Net.loadFromUri("/models"),
@@ -8,9 +11,14 @@ Promise.all([
     faceapi.nets.ageGenderNet.loadFromUri("/models")
   ]).then(startVideo);
   
+//FUNCTION TO START VIDEO IF EVERYTHING IS RIGHT ELSE THROUGH ERROR
+
   function startVideo() {
    navigator.mediaDevices.getUserMedia({video: {}}) .then((stream)=> {video.srcObject = stream;}, (err)=> console.error(err));
 }
+
+//TO CREATE CANVAS
+
 video.addEventListener("playing", () => {
     const canvas = faceapi.createCanvasFromMedia(video);
     document.body.append(canvas);

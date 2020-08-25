@@ -8,6 +8,6 @@ body{
     justify-content: center;
     align-items: center;
 }
-.canvas{
+canvas{
     position: absolute;
 }
