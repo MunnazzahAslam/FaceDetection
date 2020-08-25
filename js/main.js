@@ -14,7 +14,7 @@ Promise.all([
 //FUNCTION TO START VIDEO IF EVERYTHING IS RIGHT ELSE THROUGH ERROR
 
   function startVideo() {
-   navigator.mediaDevices.getUserMedia({video: {}}) .then((stream)=> {video.srcObject = stream;}, (err)=> console.error(err));
+   navigator.mediaDevices.getUserMedia({video: {}}) .then((stream)=> {video.srcObject = stream;});
 }
 
 //TO CREATE CANVAS
