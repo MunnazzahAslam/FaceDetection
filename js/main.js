@@ -51,7 +51,7 @@ video.addEventListener("playing", () => {
         [`${faceapi.utils.round(interpolatedAge, 0)} years`],
         bottomRight
       ).draw(canvas);
-    }, 10000);
+    }, 200;
   });
   
   function interpolateAgePredictions(age) {
