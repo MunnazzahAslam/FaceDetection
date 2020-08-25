@@ -40,8 +40,8 @@ video.addEventListener("playing", () => {
       faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
       faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
   
-      const aage = resizedDetections[0].age;
-      const interpolatedAge = interpolateAgePredictions(aage);
+      const age = resizedDetections[0].age;
+      const interpolatedAge = interpolateAgePredictions(age);
       const bottomRight = {
         x: resizedDetections[0].detection.box.bottomRight.x - 50,
         y: resizedDetections[0].detection.box.bottomRight.y
@@ -51,11 +51,11 @@ video.addEventListener("playing", () => {
         [`${faceapi.utils.round(interpolatedAge, 0)} years`],
         bottomRight
       ).draw(canvas);
-    }, 100);
+    }, 10000);
   });
   
-  function interpolateAgePredictions(aage) {
-    predictedAges = [aage].concat(predictedAges).slice(0, 30);
+  function interpolateAgePredictions(age) {
+    predictedAges = [age].concat(predictedAges).slice(0, 30);
     const avgPredictedAge =
       predictedAges.reduce((total, a) => total + a) / predictedAges.length;
     return avgPredictedAge;
