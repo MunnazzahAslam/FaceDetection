@@ -1,7 +1,7 @@
 const video= document.getElementById("video");
 let predictedAges=[];
 
-// PROMISE TO START VIDEO ONCE ALL THESE FACE API'S ARE LOADED
+// PROMISE TO START VIDEO ONCE ALL THESE FACE API'S ARE LOADED .
 
 Promise.all([
     faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
